@@ -29,6 +29,7 @@ public class MainMenu implements Initializable {
         this.settings = new Settings();
     }
 
+
     @FXML
     public void Settings(ActionEvent event) {
         try {
