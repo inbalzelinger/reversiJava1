@@ -1,9 +1,8 @@
 
 
 public class Board {
-    //Symbol symbol;
-    int size;
-    Symbol[][] board;
+    private int size;
+   private Symbol[][] board;
 
 
     /**
@@ -11,7 +10,7 @@ public class Board {
      *
      * @param size size of  matrix
      */
-    Board(int size) {
+   public Board(int size) {
 
         this.size = size;
         this.board = new Symbol[size][size];
@@ -34,7 +33,7 @@ public class Board {
      *
      * @return this.size
      */
-    int getSize() {
+    public int getSize() {
         return this.size;
     }
 
@@ -47,7 +46,7 @@ public class Board {
      *
      * @param boardToCopy
      */
-    Board(Board boardToCopy) {
+    public Board(Board boardToCopy) {
         this.size = boardToCopy.size;
         this.board = new Symbol[size][size];
 
@@ -120,7 +119,7 @@ public class Board {
         return numSymbol;
     }
 
-    void addToBoard(int row, int col, Symbol playerSigh) {
+    public void addToBoard(int row, int col, Symbol playerSigh) {
         this.board[row - 1][col - 1] = playerSigh;
     }
 }
