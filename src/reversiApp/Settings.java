@@ -44,7 +44,6 @@ public class Settings extends GridPane {
         } catch (Exception e) {
             ;
         }
-
         player1color.setValue(Color.BLACK);
         player2color.setValue(Color.WHITE);
         size.setItems(sizes);

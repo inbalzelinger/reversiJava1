@@ -28,6 +28,8 @@ public class Board {
 
     }
 
+
+
     /**
      * return size of board
      *
@@ -122,6 +124,7 @@ public class Board {
     public void addToBoard(int row, int col, Symbol playerSigh) {
         this.board[row - 1][col - 1] = playerSigh;
     }
+
 }
 
 

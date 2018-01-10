@@ -46,11 +46,10 @@ public class MainMenu implements Initializable {
     }
 
 
-
     @FXML
     public void Start(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Settings.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameBoard.fxml"));
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
             Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
