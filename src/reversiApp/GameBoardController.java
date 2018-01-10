@@ -1,5 +1,7 @@
 package reversiApp;
 
+
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -25,13 +27,13 @@ public class GameBoardController {
     }
 
     public void draw() {
-        this.getChildren.clear;
-        for (int i = 0; i < board.getSize i++) {
-            for (int j = 0; j < board.getSize; j++) {
-                this.add(new Rectangle());
-            }
+      //  this.getChildren.clear;
+       // for (int i = 0; i < board.getSize i++) {
+         //   for (int j = 0; j < board.getSize; j++) {
+           //     this.add(new Rectangle());
+           // }
         }
-    }
-
-
 }
+
+
+

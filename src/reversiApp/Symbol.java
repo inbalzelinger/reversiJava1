@@ -1,3 +1,5 @@
+package reversiApp;
+
 import java.util.Scanner;
 
     enum Symbol{

@@ -1,3 +1,5 @@
+package reversiApp;
+
 public class Point {
     private int row;
     private int col;

@@ -13,9 +13,9 @@
    <children>
       <VBox alignment="CENTER_LEFT" prefHeight="400.0" prefWidth="157.0" spacing="20">
          <children>
-             <Button mnemonicParsing="false" onAction="#Settings" text="Settings">Settings</Button>
-              <Button>Start Game</Button>
-              <Button>End Game</Button>
+             <Button mnemonicParsing="false" text="Settings" onAction="#Settings">Settings</Button>
+              <Button mnemonicParsing="false" text="Start" onAction="#Start"></Button>
+              <Button mnemonicParsing="false" text="End" onAction="#End">Settings</Button>
          </children>
       </VBox>
       <Text strokeType="OUTSIDE" strokeWidth="20.0" text="Welcome to Reversi" textAlignment="CENTER" wrappingWidth="171.7294921875">

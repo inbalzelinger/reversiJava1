@@ -1,3 +1,8 @@
+package reversiApp;
+
+import reversiApp.Point;
+import reversiApp.Symbol;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

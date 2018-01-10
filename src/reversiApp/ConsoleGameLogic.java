@@ -1,3 +1,7 @@
+package reversiApp;
+
+import reversiApp.Symbol;
+
 import java.util.ArrayList;
 
 public class ConsoleGameLogic {
@@ -9,7 +13,7 @@ public class ConsoleGameLogic {
     public ConsoleGameLogic(){}
 
     ArrayList<Point> PossibleMoves(Symbol playerSign , Board b) {
-        ArrayList<Point> moves1;
+        ArrayList<Point> moves1 = new ArrayList<>();
         Symbol otherPlayer;
         int counter = 0;
         int counterCol = 0;

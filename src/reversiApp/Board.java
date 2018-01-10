@@ -1,4 +1,4 @@
-
+package reversiApp;
 
 public class Board {
     private int size;
