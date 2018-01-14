@@ -1,21 +1,38 @@
 package reversiApp;
 
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import reversiApp.Point;
 import reversiApp.Symbol;
 
+import javax.swing.text.html.ImageView;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class ConsolePlayer extends Player {
-    /**
-     * constructor
-     * @param currentPlayer
-     */
-    public ConsolePlayer(Symbol currentPlayer) {
-        super(currentPlayer);
+class ConsolePlayer {
+
+
+    private GridPane gridPane;
+    private Symbol symbol;
+    private Color color;
+
+
+    public ConsolePlayer(GridPane gridPane , Color color , Symbol symbol) {
+        this.gridPane = gridPane;
+        this.color = color;
+        this.symbol = symbol;
     }
 
-   @Override
+
+    public void drew(int col , int row) {
+        Circle circle = new Circle(10 , this.color);
+        gridPane.add(circle , col , row);
+    }
+
+
+
     public Point makeMove(ArrayList<Point> possibleMoves, Board b) {
         int col=0, row=0;
         int legalMoves = 0;
@@ -33,4 +50,11 @@ class ConsolePlayer extends Player {
         possibleMoves.clear();
         return new Point(row,col);
     }
+
+
+    Symbol getSign() {
+return this.symbol;
+    }
+
+
 }

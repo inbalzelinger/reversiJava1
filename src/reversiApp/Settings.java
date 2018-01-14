@@ -29,21 +29,6 @@ public class Settings extends GridPane {
 
     @FXML
     private void initialize() {
-        File settingsFile = new File("settings.txt");
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(settingsFile)));
-            StringBuilder sb = new StringBuilder();
-            String line = reader.readLine();
-            while (line != null) {
-                sb.append(line);
-                sb.append(System.lineSeparator());
-                line = reader.readLine();
-            }
-
-        } catch (Exception e) {
-            ;
-        }
         player1color.setValue(Color.BLACK);
         player2color.setValue(Color.WHITE);
         size.setItems(sizes);

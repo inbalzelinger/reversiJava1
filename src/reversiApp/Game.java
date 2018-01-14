@@ -1,13 +1,16 @@
 package reversiApp;
 
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 public class Game {
     private ConsoleGameLogic logic;
     private Board board;
     private Display display;
-    private Player blackPlayer;
-    private Player whitePlayer;
+    private ConsolePlayer blackPlayer;
+    private ConsolePlayer whitePlayer;
 
     /**
      *
@@ -17,8 +20,9 @@ public class Game {
     public Game(Board b,Display Display){
             this.logic=new ConsoleGameLogic();
             this.board=b;
-            this.blackPlayer = new ConsolePlayer(Symbol.X);
-            this.whitePlayer = new ConsolePlayer(Symbol.O);
+        GridPane gridPane = new GridPane();
+            this.blackPlayer = new ConsolePlayer(gridPane ,  Color.BLACK ,Symbol.X);
+            this.whitePlayer = new ConsolePlayer(gridPane , Color.WHITE , Symbol.O);
     }
 
     public ArrayList<Point> turn(Symbol playerSign) {
