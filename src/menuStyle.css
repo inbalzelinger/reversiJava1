@@ -1,0 +1,35 @@
+
+
+
+
+.root {
+     -fx-background-color: white
+}
+
+.button {
+    -fx-font: 16px "Serif";
+    -fx-padding: 10;
+    -fx-background-color: #CCFF99;
+     -fx-font-weight: bold;
+
+
+}
+
+.label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+
+    .containerVBox {
+           -fx-backgroundColor: white;
+           -fx-borderThickness: 1;
+           -fx-borderColor: black;
+            borderStyle: solid;
+            paddingLeft: 5;
+            paddingRight: 5;
+            paddingTop: 5;
+            paddingBottom: 5;
+        }

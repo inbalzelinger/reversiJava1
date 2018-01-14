@@ -29,7 +29,6 @@ public class GameBoardController extends GridPane{
         }
     }
 
-
     public void draw() {
         //this.getChildren.clear;
         int height = (int)this.getPrefHeight();

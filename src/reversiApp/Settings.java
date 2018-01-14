@@ -57,6 +57,7 @@ public class Settings extends GridPane {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
+            scene.getStylesheets().add("menuStyle.css");
             Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
