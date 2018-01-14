@@ -34,6 +34,9 @@ public class MainMenu implements Initializable {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Settings.fxml"));
             Parent parent = fxmlLoader.load();
+
+            parent.setStyle("-fx-background-color: AC89DA;");
+
             Scene scene = new Scene(parent);
             Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -58,7 +61,6 @@ public class MainMenu implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 
@@ -67,8 +69,6 @@ public class MainMenu implements Initializable {
     public void End(ActionEvent event) {
         exit(0);
     }
-
-
 }
 
 
