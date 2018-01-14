@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class ConsoleGameLogic {
 
-
     /**
      * constructor
      */
@@ -14,6 +13,8 @@ public class ConsoleGameLogic {
 
     ArrayList<Point> PossibleMoves(Symbol playerSign , Board b) {
         ArrayList<Point> moves1 = new ArrayList<>();
+        ArrayList<Point> playersOptions=new ArrayList<>();
+
         Symbol otherPlayer;
         int counter = 0;
         int counterCol = 0;
@@ -164,9 +165,6 @@ public class ConsoleGameLogic {
         }
         int j = 0;
         int flag = 0;
-
-        ArrayList<Point> playersOptions=new ArrayList<>();
-
         if (playersOptions.isEmpty() && !moves1.isEmpty()) {
             playersOptions.add(moves1.get(j));
             j++;
@@ -185,8 +183,7 @@ public class ConsoleGameLogic {
             flag = 0;
             j++;
         }
-        return playersOptions;
-
+        return moves1;
     }
 
 

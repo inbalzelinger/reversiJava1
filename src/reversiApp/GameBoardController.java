@@ -51,18 +51,30 @@ public class GameBoardController extends GridPane{
         int cellwidth = cellHeight;
         for (int i = 0; i < board.getSize(); i++) {
             for (int j = 0; j < board.getSize(); j++) {
-                Rectangle rectangle=new Rectangle(cellwidth , cellHeight , Color.AQUA);
+                Rectangle rectangle=new Rectangle(cellwidth , cellHeight , Color.BEIGE);
                 rectangle.setStroke(Color.BLACK);
                 this.add(rectangle, j ,i);
+                if(board.getValueAt(i, j) == playerX.getSign()) {
+                    playerX.draw(j, i);
+                } else if(board.getValueAt(i,j) == playerO.getSign()) {
+                    playerO.draw(j, i);
+                }
             }
         }
-        playerO.drew(board.getSize()/2 , board.getSize()/2);
-        playerO.drew((board.getSize()/2) - 1 , (board.getSize()/2) -1);
-        playerX.drew(board.getSize()/2 , (board.getSize()/2)-1);
-        playerX.drew((board.getSize()/2) - 1 , (board.getSize()/2));
-
     }
+
+    public Point whichCell(double row, double col){
+        int numOfCells=board.getSize();
+        double cellSize=this.getPrefHeight()/numOfCells;
+        int r= (int) ((int)row/cellSize);
+        int c= (int) ((int)col/cellSize);
+        return new Point(r+1,c+1);
+
+        }
 }
+
+
+
 
 
 

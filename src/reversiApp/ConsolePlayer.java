@@ -26,7 +26,7 @@ class ConsolePlayer {
     }
 
 
-    public void drew(int col , int row) {
+    public void draw(int col , int row) {
         Circle circle = new Circle(10 , this.color);
         gridPane.add(circle , col , row);
     }
