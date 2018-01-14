@@ -23,6 +23,10 @@ import java.util.ResourceBundle;
 public class ReversiGameController implements Initializable {
 
     @FXML Label labelVar;
+    @FXML Label XScore;
+    @FXML Label OScore;
+
+
 
     @FXML
     private HBox root;
@@ -58,6 +62,8 @@ public ReversiGameController(){
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         labelVar.setText("its X turn");
+        XScore.setText("X score: 2");
+        OScore.setText("O score: 2");
 
         gameBoardController.setPrefHeight(400);
         gameBoardController.setPrefWidth(400);
@@ -78,6 +84,7 @@ public ReversiGameController(){
             point.PrintPoint();
             boolean isPlay=this.playOneTurn(point,currentPlayer);
            if(isPlay){
+               this.updateCurrentPoints();
               this.updateCurrentPlayer();
                 System.out.println("yes");
             }
@@ -87,12 +94,9 @@ public ReversiGameController(){
     }
     private boolean playOneTurn(Point point,Symbol currentPlayer){
         ArrayList<Point> possibleMovesList = logic.PossibleMoves(currentPlayer,board);
-
         if (possibleMovesList.isEmpty()) {
             return true;
         }
-
-
         System.out.println("list: ");
         for(Point p: possibleMovesList) {
             p.PrintPoint();
@@ -127,6 +131,17 @@ public ReversiGameController(){
         this.currentPlayer=Symbol.X;
          labelVar.setText("its X turn");
      }
+
+
+    private void updateCurrentPoints(){
+
+    Integer numX = this.board.count(Symbol.X);
+    Integer numO = this.board.count(Symbol.O);
+
+            XScore.setText("X score:" +numX.toString());
+            OScore.setText("O score:" +numO.toString());
+
+    }
 
 
 

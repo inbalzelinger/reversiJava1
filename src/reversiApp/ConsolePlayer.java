@@ -52,7 +52,7 @@ class ConsolePlayer {
     }
 
 
-    Symbol getSign() {
+    public Symbol getSign() {
 return this.symbol;
     }
 

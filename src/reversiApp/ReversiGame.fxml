@@ -11,8 +11,8 @@
             fx:controller="reversiApp.ReversiGameController">
     <VBox spacing="10">
         <Label fx:id="labelVar" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="current Player:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score X:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score O:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label fx:id="XScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score X:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label fx:id="OScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score O:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
 
 
