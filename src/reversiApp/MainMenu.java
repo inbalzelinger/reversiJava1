@@ -20,12 +20,11 @@ public class MainMenu implements Initializable {
     @FXML
     private HBox root;
     private Settings settings;
-    private int[][] maze = {
-            {0,1,0,1,0,0,0,1,0,0,0},
-            {0,1,0,1,0,0,0,1,0,0,0}
-    };
+    private ReversiGameController reversiGameController;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.reversiGameController=new ReversiGameController();
         this.settings = new Settings();
     }
 
@@ -49,7 +48,8 @@ public class MainMenu implements Initializable {
     @FXML
     public void Start(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameBoard.fxml"));
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReversiGame.fxml"));
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
             Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();

@@ -5,10 +5,10 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<HBox xmlns:fx="http://javafx.com/javafx/1"
+<fx:root type="javafx.scene.layout.GridPane"
+xmlns:fx="http://javafx.com/javafx/1"
       fx:controller="reversiApp.GameBoardController"
       fx:id="root"
       snapToPixel="10">
 
-</HBox>
+</>
