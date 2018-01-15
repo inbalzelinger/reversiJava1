@@ -54,10 +54,12 @@ public class MainMenu implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReversiGame.fxml"));
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
+            scene.getStylesheets().add("menuStyle.css");
 
             Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
+
 
 
         } catch (Exception e) {

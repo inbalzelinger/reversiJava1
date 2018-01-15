@@ -1,5 +1,6 @@
 package reversiApp;
 
+import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -27,10 +28,12 @@ class ConsolePlayer {
 
 
     public void draw(int col , int row) {
-        Circle circle = new Circle(10 , this.color);
+        Circle circle = new Circle(6 , this.color);
         gridPane.add(circle , col , row);
     }
-
+public Circle getCircle(){
+        return new Circle(6,this.color);
+}
 
 
     public Point makeMove(ArrayList<Point> possibleMoves, Board b) {

@@ -5,6 +5,7 @@ package reversiApp;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -54,11 +55,19 @@ public class GameBoardController extends GridPane{
                 Rectangle rectangle=new Rectangle(cellwidth , cellHeight , Color.BEIGE);
                 rectangle.setStroke(Color.BLACK);
                 this.add(rectangle, j ,i);
-                if(board.getValueAt(i, j) == playerX.getSign()) {
-                    playerX.draw(j, i);
-                } else if(board.getValueAt(i,j) == playerO.getSign()) {
-                    playerO.draw(j, i);
+                if(board.getValueAt(i,j)!=Symbol.EMPTY) {
+                    Circle playerCircle=null;
+                    if (board.getValueAt(i, j) == playerX.getSign()) {
+                        playerCircle = playerX.getCircle();
+                        // playerX.draw(j, i);
+                    } else if (board.getValueAt(i, j) == playerO.getSign()) {
+                        playerCircle = playerO.getCircle();
+                        //playerO.draw(j, i);
+                    }
+                    this.add(playerCircle, j, i);
+                    setHalignment(playerCircle, HPos.CENTER);
                 }
+
             }
         }
     }

@@ -14,6 +14,9 @@
         <Label fx:id="XScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score X:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label fx:id="OScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score O:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
+        <Label fx:id="gameOver" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label fx:id="Winner" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
 
         <Button mnemonicParsing="false" onAction="#end" text="End Game" />
     </VBox>
