@@ -20,6 +20,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static java.lang.System.exit;
+
 public class ReversiGameController implements Initializable {
 
     @FXML Label labelVar;
@@ -64,7 +66,6 @@ public ReversiGameController(){
         labelVar.setText("its X turn");
         XScore.setText("X score: 2");
         OScore.setText("O score: 2");
-
         gameBoardController.setPrefHeight(400);
         gameBoardController.setPrefWidth(400);
         root.getChildren().add(0,gameBoardController);
@@ -83,10 +84,15 @@ public ReversiGameController(){
             Point point=gameBoardController.whichCell(event.getY(),event.getX());
             point.PrintPoint();
             boolean isPlay=this.playOneTurn(point,currentPlayer);
+            boolean endOfGame = false;
            if(isPlay){
-               this.updateCurrentPoints();
-              this.updateCurrentPlayer();
+               endOfGame = this.updateCurrentPoints();
+               this.updateCurrentPlayer();
                 System.out.println("yes");
+            }
+            if (endOfGame) {
+               ///change to game Over.
+               exit(1);
             }
             gameBoardController.draw();
             event.consume();
@@ -111,6 +117,7 @@ public ReversiGameController(){
             return true;
         }
     }
+
     private boolean isValidMove(Point point,ArrayList<Point> possibleMovesList){
         for(Point p: possibleMovesList) {
             if (p.ComparePoint(point)) {
@@ -118,14 +125,12 @@ public ReversiGameController(){
             }
         }
         return false;
-
     }
+
      private void updateCurrentPlayer(){
         if (this.currentPlayer==Symbol.X){
             this.currentPlayer=Symbol.O;
-
             labelVar.setText("its O turn");
-
             return;
         }
         this.currentPlayer=Symbol.X;
@@ -133,16 +138,18 @@ public ReversiGameController(){
      }
 
 
-    private void updateCurrentPoints(){
-
+    private boolean updateCurrentPoints(){
     Integer numX = this.board.count(Symbol.X);
     Integer numO = this.board.count(Symbol.O);
-
-            XScore.setText("X score:" +numX.toString());
-            OScore.setText("O score:" +numO.toString());
-
+    XScore.setText("X score:" +numX.toString());
+    OScore.setText("O score:" +numO.toString());
+    if (numX + numO == (board.getSize() * board.getSize())) {
+        return true;
+        }
+        else {
+        return false;
+        }
     }
-
 
 
 
