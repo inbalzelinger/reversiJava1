@@ -83,16 +83,23 @@ public ReversiGameController(){
             System.out.println("click: ");
             Point point=gameBoardController.whichCell(event.getY(),event.getX());
             point.PrintPoint();
-            boolean isPlay=this.playOneTurn(point,currentPlayer);
+            boolean isPlay = this.playOneTurn(point,currentPlayer);
             boolean endOfGame = false;
+            int endNoMoves = 0;
            if(isPlay){
                endOfGame = this.updateCurrentPoints();
                this.updateCurrentPlayer();
                 System.out.println("yes");
-            }
+                endNoMoves = 0;
+            } else {
+               endNoMoves++;
+           }
+           if (endNoMoves == 2) {
+               System.out.println("end no Moves");
+           }
             if (endOfGame) {
                ///change to game Over.
-               exit(1);
+              // this.gameOver(event);
             }
             gameBoardController.draw();
             event.consume();
@@ -152,7 +159,6 @@ public ReversiGameController(){
     }
 
 
-
     @FXML
     public void end(ActionEvent event) {
         try {
@@ -169,6 +175,21 @@ public ReversiGameController(){
     }
 
 
+
+    @FXML
+    private void gameOver(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameOver.fxml"));
+            Parent parent = fxmlLoader.load();
+            Scene scene = new Scene(parent);
+            scene.getStylesheets().add("menuStyle.css");
+            Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 

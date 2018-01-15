@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 <HBox fx:id="root" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="reversiApp.ReversiGameController">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="reversiApp.GameOver">
     <VBox spacing="10">
-        <Label fx:id="labelVar" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="current Player:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Game Over:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label fx:id="winner" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="winner:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label fx:id="XScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score X:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label fx:id="OScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score O:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
 
-        <Button mnemonicParsing="false" onAction="#end" text="End Game" />
+        <Button mnemonicParsing="false" onAction="#returnToMenu" text="return to the menu" />
     </VBox>
 
 </HBox>
