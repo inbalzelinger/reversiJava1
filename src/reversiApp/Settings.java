@@ -20,6 +20,8 @@ import java.util.Observable;
 public class Settings extends GridPane {
 
     ObservableList<String> sizes = FXCollections.observableArrayList("4"  , "6" , "8" , "10" , "12" , "14" , "16" , "18" , "20");
+    ObservableList<Symbol> players = FXCollections.observableArrayList(Symbol.X , Symbol.O);
+
     @FXML
     private ColorPicker player1color;
     @FXML
@@ -28,11 +30,18 @@ public class Settings extends GridPane {
     private ChoiceBox size;
 
     @FXML
+    private ChoiceBox firstPlayer;
+
+
+    @FXML
     private void initialize() {
         player1color.setValue(Color.BLACK);
         player2color.setValue(Color.WHITE);
         size.setItems(sizes);
+        firstPlayer.setItems(players);
         size.setValue("8");
+        firstPlayer.setValue(Symbol.X);
+
     }
 
 
@@ -47,9 +56,13 @@ public class Settings extends GridPane {
             stage.setScene(scene);
             stage.show();
             PrintWriter writer = new PrintWriter("settings.txt", "UTF-8");
+            writer.println(firstPlayer.getValue().toString());
             writer.println(player1color.getValue().toString());
             writer.println(player2color.getValue().toString());
             writer.println(size.getValue().toString());
+
+
+
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();

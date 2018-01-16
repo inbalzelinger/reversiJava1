@@ -34,17 +34,14 @@ public class ReversiGameController implements Initializable {
     @FXML Label OScore;
     @FXML Label Winner;
     @FXML Label gameOver;
-    @FXML Circle playerColor;
-
+    @FXML Label playNow;
 
     private  Integer numX;
     private Integer numO;
 
-
     @FXML
     private HBox root;
     private Symbol currentPlayer;
-
     private ConsoleGameLogic logic;
     private Board board;
     private GameBoardController gameBoardController;
@@ -54,28 +51,37 @@ public class ReversiGameController implements Initializable {
      * constructor
      */
     public ReversiGameController(){
-    this.currentPlayer=Symbol.X;
-    this.logic=new ConsoleGameLogic();
+    this.logic = new ConsoleGameLogic();
     File settingsFile = new File("settings.txt");
     BufferedReader reader = null;
     int size=8;
-    Color color1=Color.BLACK;
-    Color color2=Color.WHITE;
+    String firstPlayerSymbol = "X";
+    Color color1 = Color.BLACK;
+    Color color2 = Color.WHITE;
     try {
         reader = new BufferedReader(new InputStreamReader(new FileInputStream(settingsFile)));
         StringBuilder sb = new StringBuilder();
         String line = reader.readLine();
+        firstPlayerSymbol = line;
+        line = reader.readLine();
         color1 = Color.valueOf(line);
-        this.playerColor.fillProperty().set(color1);
         line = reader.readLine();
         color2=Color.valueOf(line);
         line = reader.readLine();
         size=Integer.parseInt(line);
+        if (firstPlayerSymbol.equals("X")) {
+            this.currentPlayer = Symbol.X;
+            this.playNow.setText("Current player: X");
+        } else {
+            this.currentPlayer = Symbol.O;
+            this.playNow.setText("Current player: O");
+
+        }
     } catch (Exception e) {
         ;
     }
     this.board = new Board(size);
-     this.gameBoardController = new GameBoardController(board,color1,color2);
+    this.gameBoardController = new GameBoardController(board,color1,color2);
 }
 
     @Override
@@ -101,14 +107,11 @@ public class ReversiGameController implements Initializable {
            if (this.didntPlay == 2) {
                System.out.println("end no Moves");
                this.updateWinner();
-
-
            }
             if (endOfGame) {
                 this.updateWinner();
                 ///change to game Over.
             }
-
             gameBoardController.draw();
             event.consume();
 });
@@ -159,13 +162,11 @@ public class ReversiGameController implements Initializable {
      private void updateCurrentPlayer(){
         if (this.currentPlayer==Symbol.X){
             this.currentPlayer=Symbol.O;
-            Paint paint=this.gameBoardController.getPlayerO().getColor();
-            this.playerColor.fillProperty().set(paint);
+            this.playNow.setText("Current player: O");
             return;
         }
         this.currentPlayer=Symbol.X;
-         Paint paint=this.gameBoardController.getPlayerX().getColor();
-         this.playerColor.fillProperty().set(paint);
+         this.playNow.setText("Current player: X");
      }
 
     /**

@@ -16,8 +16,7 @@
        <VBox prefHeight="371.0" prefWidth="270" spacing="10">
           <children>
       
-              <Label fx:id="labelVar" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="current Player:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      
+              <Label fx:id="playNow" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="current Player:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
               <Label fx:id="XScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score X:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
               <Label fx:id="OScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score O:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
               <Label fx:id="Winner" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -31,7 +30,6 @@
    
    
         <Label fx:id="gameOver" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="66.0" />
-           <Circle fx:id="playerColor" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 
 

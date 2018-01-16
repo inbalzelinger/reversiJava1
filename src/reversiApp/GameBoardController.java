@@ -53,7 +53,6 @@ public class GameBoardController extends GridPane{
      * draw the board
      */
     public void draw() {
-
         int height = (int)this.getPrefHeight();
         int width = (int)this.getPrefWidth();
         int cellHeight = height / board.getSize();

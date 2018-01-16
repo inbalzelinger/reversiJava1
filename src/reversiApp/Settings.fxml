@@ -11,8 +11,8 @@
 
 <GridPane fx:id="root" alignment="CENTER" prefHeight="440.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reversiApp.Settings">
    <children>
-       <Label prefHeight="30.0" prefWidth="147.0" text="1st player color:" GridPane.rowIndex="4" />
-       <Label prefHeight="15.0" prefWidth="150.0" text="2nd player color :" GridPane.rowIndex="6" />
+       <Label prefHeight="30.0" prefWidth="147.0" text="X color:" GridPane.rowIndex="4" />
+       <Label prefHeight="15.0" prefWidth="150.0" text="O color :" GridPane.rowIndex="6" />
       <ColorPicker fx:id="player1color" prefHeight="25.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
       <ColorPicker fx:id="player2color" prefHeight="25.0" prefWidth="101.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Board Size" GridPane.rowIndex="12" />
@@ -24,7 +24,7 @@
       </Text>
       <Button mnemonicParsing="false" onAction="#SaveAdnReturn" text="save and return" GridPane.rowIndex="14" />
       <Label prefHeight="30.0" prefWidth="147.0" text="choose 1st player" GridPane.rowIndex="2" />
-      <ChoiceBox fx:id="size1" prefHeight="25.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <ChoiceBox fx:id="firstPlayer" prefHeight="25.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
    <columnConstraints>
       <ColumnConstraints maxWidth="288.0" minWidth="10.0" prefWidth="173.0" />
