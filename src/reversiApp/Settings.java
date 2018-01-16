@@ -57,7 +57,4 @@ public class Settings extends GridPane {
     }
 
 
-    public void drew() {
-        this.getChildren().clear(); }
-
 }

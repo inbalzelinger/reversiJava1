@@ -19,6 +19,12 @@ class ConsolePlayer {
     private Symbol symbol;
     private Color color;
 
+    /**
+     * constructor
+     * @param gridPane
+     * @param color
+     * @param symbol
+     */
 
     public ConsolePlayer(GridPane gridPane , Color color , Symbol symbol) {
         this.gridPane = gridPane;
@@ -27,37 +33,29 @@ class ConsolePlayer {
     }
 
 
-    public void draw(int col , int row) {
-        Circle circle = new Circle(6 , this.color);
-        gridPane.add(circle , col , row);
-    }
-public Circle getCircle(){
+    /**
+     * return a new circle in the player color
+     * @return circle
+     */
+    public Circle getCircle(){
         return new Circle(6,this.color);
 }
 
-
-    public Point makeMove(ArrayList<Point> possibleMoves, Board b) {
-        int col=0, row=0;
-        int legalMoves = 0;
-        while (legalMoves == 0) {
-            Scanner scn = new Scanner(System.in);
-            row = scn.nextInt();
-            col = scn.nextInt();
-            //check if the move is on the list.
-            if (!(possibleMoves.contains(new Point(row, col)))) {
-                System.out.println("your move is illegal, please try again");
-            } else {
-                break;
-            }
-        }
-        possibleMoves.clear();
-        return new Point(row,col);
+    /**
+     * return player color
+     * @return this.color
+     */
+    public Color getColor() {
+        return color;
     }
 
-
+    /**
+     * return player sign
+     * @return this.symbol
+     */
     public Symbol getSign() {
-return this.symbol;
-    }
+        return this.symbol;
+        }
 
 
 }

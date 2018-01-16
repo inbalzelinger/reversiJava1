@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -23,33 +25,35 @@ import java.util.ResourceBundle;
 
 import static java.lang.System.exit;
 import static java.lang.System.setOut;
+import static javafx.scene.paint.Color.BLUE;
+import static javafx.scene.paint.Color.RED;
 
 public class ReversiGameController implements Initializable {
 
-    @FXML Label labelVar;
     @FXML Label XScore;
     @FXML Label OScore;
     @FXML Label Winner;
     @FXML Label gameOver;
+    @FXML Circle playerColor;
 
 
     private  Integer numX;
     private Integer numO;
 
 
-
-
-
     @FXML
     private HBox root;
     private Symbol currentPlayer;
+
     private ConsoleGameLogic logic;
     private Board board;
     private GameBoardController gameBoardController;
     private int didntPlay;
 
-
-public ReversiGameController(){
+    /**
+     * constructor
+     */
+    public ReversiGameController(){
     this.currentPlayer=Symbol.X;
     this.logic=new ConsoleGameLogic();
     File settingsFile = new File("settings.txt");
@@ -76,7 +80,7 @@ public ReversiGameController(){
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     this.didntPlay = 0;
-        labelVar.setText("its X turn");
+        //labelVar.setText("its X turn");
         XScore.setText("X score: 2");
         OScore.setText("O score: 2");
         gameBoardController.setPrefHeight(400);
@@ -117,17 +121,19 @@ public ReversiGameController(){
             event.consume();
 });
     }
+
+    /**
+     * check if given point is a valid move and update the board and next player
+     * @param point
+     * @param currentPlayer
+     * @return true if a move was made. else- return false
+     */
     private boolean playOneTurn(Point point,Symbol currentPlayer){
         ArrayList<Point> possibleMovesList = logic.PossibleMoves(currentPlayer,board);
         if (possibleMovesList.isEmpty()) {
             this.updateCurrentPlayer();
             didntPlay++;
             return false;
-        }
-        System.out.println("list: ");
-        for(Point p: possibleMovesList) {
-            p.PrintPoint();
-
         }
         if(!(isValidMove(point,possibleMovesList))) {
             return false;
@@ -140,7 +146,12 @@ public ReversiGameController(){
             return true;
         }
     }
-
+    /**
+     * return true if point is in possible moves list. else- return false
+     * @param point
+     * @param possibleMovesList
+     * @return  return true if point is in possible moves list. else- return false
+     */
     private boolean isValidMove(Point point,ArrayList<Point> possibleMovesList){
         for(Point p: possibleMovesList) {
             if (p.ComparePoint(point)) {
@@ -150,21 +161,29 @@ public ReversiGameController(){
         return false;
     }
 
+    /**
+     * change current player. x to o.
+     */
      private void updateCurrentPlayer(){
         if (this.currentPlayer==Symbol.X){
             this.currentPlayer=Symbol.O;
-            labelVar.setText("its O turn");
+            Paint paint=this.gameBoardController.getPlayerO().getColor();
+            this.playerColor.fillProperty().set(paint);
             return;
         }
         this.currentPlayer=Symbol.X;
-         labelVar.setText("its X turn");
+
+         Paint paint=this.gameBoardController.getPlayerX().getColor();
+         this.playerColor.fillProperty().set(paint);
      }
 
-
+    /**
+     * updaet points of both players
+     * @return return true if board is full. else return false.
+     */
     private boolean updateCurrentPoints(){
     this.numX = this.board.count(Symbol.X);
-   this.numO = this.board.count(Symbol.O);
-
+    this.numO = this.board.count(Symbol.O);
     XScore.setText("X score:" +numX.toString());
     OScore.setText("O score:" +numO.toString());
     if (numX + numO == (board.getSize() * board.getSize())) {
@@ -191,7 +210,9 @@ public ReversiGameController(){
         }
     }
 
-
+    /**
+     * set the ending status of the game according to score
+     */
     public void updateWinner() {
     this.gameOver.setText("GAME OVER");
         if (this.numX > this.numO) {

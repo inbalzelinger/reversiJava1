@@ -26,7 +26,12 @@ public class GameBoardController extends GridPane{
     private static final int FREE = 0;
     private static final int FULL = 1;
 
-
+    /**
+     * constructor
+     * @param board
+     * @param color1
+     * @param color2
+     */
     public GameBoardController(Board board,Color color1,Color color2) {
         this.board = board;
         this.color1=color1;
@@ -44,8 +49,11 @@ public class GameBoardController extends GridPane{
         }
     }
 
+    /**
+     * draw the board
+     */
     public void draw() {
-        //this.getChildren.clear;
+
         int height = (int)this.getPrefHeight();
         int width = (int)this.getPrefWidth();
         int cellHeight = height / board.getSize();
@@ -59,10 +67,8 @@ public class GameBoardController extends GridPane{
                     Circle playerCircle=null;
                     if (board.getValueAt(i, j) == playerX.getSign()) {
                         playerCircle = playerX.getCircle();
-                        // playerX.draw(j, i);
                     } else if (board.getValueAt(i, j) == playerO.getSign()) {
                         playerCircle = playerO.getCircle();
-                        //playerO.draw(j, i);
                     }
                     this.add(playerCircle, j, i);
                     setHalignment(playerCircle, HPos.CENTER);
@@ -72,6 +78,12 @@ public class GameBoardController extends GridPane{
         }
     }
 
+    /**
+     * calculate at which cell the mouse clicked
+     * @param row
+     * @param col
+     * @return cell the user clicked on
+     */
     public Point whichCell(double row, double col){
         int numOfCells=board.getSize();
         double cellSize=this.getPrefHeight()/numOfCells;
@@ -80,6 +92,14 @@ public class GameBoardController extends GridPane{
         return new Point(r+1,c+1);
 
         }
+
+    public ConsolePlayer getPlayerO() {
+        return playerO;
+    }
+
+    public ConsolePlayer getPlayerX() {
+        return playerX;
+    }
 }
 
 

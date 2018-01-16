@@ -11,6 +11,12 @@ public class ConsoleGameLogic {
      */
     public ConsoleGameLogic(){}
 
+    /**
+     * return a list of possible moves for current player
+     * @param playerSign the player symbol
+     * @param b the board
+     * @return a list of possible moves
+     */
     ArrayList<Point> PossibleMoves(Symbol playerSign , Board b) {
         ArrayList<Point> moves1 = new ArrayList<>();
         ArrayList<Point> playersOptions=new ArrayList<>();
@@ -187,9 +193,13 @@ public class ConsoleGameLogic {
     }
 
 
-
-
-
+    /**
+     * change symbols on the board after making a move
+     * @param playerSign
+     * @param row
+     * @param col
+     * @param b
+     */
     public void upside(Symbol playerSign ,  int row , int col , Board b) {
         Symbol otherPlayer;
         int counter = 0;

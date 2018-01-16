@@ -59,56 +59,12 @@ public class Board {
         }
     }
 
-/*
-    public void print (ostream &out ,const Board &board1)
 
-    {
-        char cellValue = ' ';
-        out << " |";
-        for (int i = 1; i <= board1.size; i++) {
-            out << "  " << i << "  |";
-        }
-        out << endl;
-        out << " ";
-        for (int i = 0; i < board1.size * 3; i = i + 3) {
-            out << "_ _ _ ";
-        }
-        out << endl;
-
-        for (int i = 0; i < board1.size; i = i + 1) {
-            for (int j = 0; j < board1.size; j = j + 1) {
-                if (j == 0) {
-                    out << i + 1 << "|";
-                }
-                if (board1.board[i][j] != empty) {
-                    switch (board1.getValueAt(i, j)) {
-                        case X:
-                            cellValue = 'X';
-                            break;
-                        case O:
-                            cellValue = 'O';
-                            break;
-                        case empty:
-                            cellValue = ' ';
-                            break;
-                    }
-                    out << cellValue << "    |";
-                } else {
-                    out << "     |";
-                }
-            }
-            out << endl;
-            out << " ";
-            for (int i = 0; i < board1.size * 3; i = i + 3) {
-                out << "_ _ _ ";
-            }
-            out << endl;
-        }
-        out << endl;
-        return out;
-    }
-*/
-
+    /**
+     * count number of given symbol on the board
+     * @param symbol
+     * @return number of symbol
+     */
     public int count(Symbol symbol) {
         int numSymbol = 0;
         for (int i = 0; i < this.size;i++){
@@ -121,6 +77,12 @@ public class Board {
         return numSymbol;
     }
 
+    /**
+     * add symbol to the given cell
+     * @param row
+     * @param col
+     * @param playerSigh
+     */
     public void addToBoard(int row, int col, Symbol playerSigh) {
         this.board[row - 1][col - 1] = playerSigh;
     }

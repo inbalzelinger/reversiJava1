@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 
-<HBox fx:id="root" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="reversiApp.ReversiGameController">
+<HBox fx:id="root" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reversiApp.ReversiGameController">
     <VBox spacing="10">
+
         <Label fx:id="labelVar" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="current Player:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
         <Label fx:id="XScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score X:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label fx:id="OScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score O:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
@@ -20,5 +21,8 @@
 
         <Button mnemonicParsing="false" onAction="#end" text="End Game" />
     </VBox>
+   <Circle fx:id="playerCircle" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+   <Circle fx:id="playerCircle1" fill="DODGERBLUE" layoutX="172.0" layoutY="22.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+   <Circle fx:id="playerCircle2" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
 
 </HBox>
