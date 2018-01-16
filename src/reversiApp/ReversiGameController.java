@@ -87,16 +87,7 @@ public class ReversiGameController implements Initializable {
         gameBoardController.setPrefHeight(400);
         gameBoardController.setPrefWidth(400);
         root.getChildren().add(0,gameBoardController);
-        root.widthProperty().addListener(((observable, oldValue, newValue) -> {
-            double boardNewWidth=newValue.doubleValue()-120;
-            gameBoardController.setPrefWidth(boardNewWidth);
-            gameBoardController.draw();
-        }));
-
-        root.heightProperty().addListener(((observable, oldValue, newValue) -> {
-        gameBoardController.setPrefHeight(newValue.doubleValue());
         gameBoardController.draw();
-    }));
         gameBoardController.setOnMouseClicked((MouseEvent event) -> {
             System.out.println("click: ");
             Point point=gameBoardController.whichCell(event.getY(),event.getX());
@@ -173,7 +164,6 @@ public class ReversiGameController implements Initializable {
             return;
         }
         this.currentPlayer=Symbol.X;
-
          Paint paint=this.gameBoardController.getPlayerX().getColor();
          this.playerColor.fillProperty().set(paint);
      }
