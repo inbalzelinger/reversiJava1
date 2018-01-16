@@ -101,7 +101,10 @@ public class ReversiGameController implements Initializable {
         gameBoardController.setPrefHeight(400);
         gameBoardController.setPrefWidth(400);
         root.getChildren().add(0,gameBoardController);
-        gameBoardController.draw();
+
+        gameBoardController.draw(this.logic.PossibleMoves(this.currentPlayer , board));
+
+
         gameBoardController.setOnMouseClicked((MouseEvent event) -> {
             System.out.println("click: ");
             Point point=gameBoardController.whichCell(event.getY(),event.getX());
@@ -120,7 +123,9 @@ public class ReversiGameController implements Initializable {
                 this.updateWinner();
                 ///change to game Over.
             }
-            gameBoardController.draw();
+
+
+            gameBoardController.draw(this.logic.PossibleMoves(this.currentPlayer , board));
             event.consume();
 });
     }

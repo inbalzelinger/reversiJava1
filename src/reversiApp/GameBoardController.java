@@ -14,6 +14,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GameBoardController extends GridPane{
     private Board board;
@@ -52,7 +53,8 @@ public class GameBoardController extends GridPane{
     /**
      * draw the board
      */
-    public void draw() {
+    public void draw(ArrayList<Point> possibleMoves) {
+
         int height = (int)this.getPrefHeight();
         int width = (int)this.getPrefWidth();
         int cellHeight = height / board.getSize();
@@ -62,7 +64,7 @@ public class GameBoardController extends GridPane{
                 Rectangle rectangle=new Rectangle(cellwidth , cellHeight , Color.BEIGE);
                 rectangle.setStroke(Color.BLACK);
                 this.add(rectangle, j ,i);
-                if(board.getValueAt(i,j)!=Symbol.EMPTY) {
+                if(board.getValueAt(i,j) != Symbol.EMPTY) {
                     Circle playerCircle=null;
                     if (board.getValueAt(i, j) == playerX.getSign()) {
                         playerCircle = playerX.getCircle();
@@ -71,11 +73,31 @@ public class GameBoardController extends GridPane{
                     }
                     this.add(playerCircle, j, i);
                     setHalignment(playerCircle, HPos.CENTER);
+                } else {
+                    Point point = new Point(i+1 , j+1);
+                    if (isInList(point , possibleMoves)) {
+                        Circle circle = new Circle(7 , Color.AQUA);
+                        this.add(circle , j , i);
+                        setHalignment(circle , HPos.CENTER);
+                    }
+
+
                 }
 
             }
         }
     }
+
+
+    public boolean isInList(Point point , ArrayList<Point> possibleMoves) {
+        for (Point p: possibleMoves) {
+            if (p.ComparePoint(point)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * calculate at which cell the mouse clicked
