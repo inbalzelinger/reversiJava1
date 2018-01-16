@@ -76,9 +76,10 @@ public class GameBoardController extends GridPane{
                 } else {
                     Point point = new Point(i+1 , j+1);
                     if (isInList(point , possibleMoves)) {
-                        Circle circle = new Circle(7 , Color.AQUA);
-                        this.add(circle , j , i);
-                        setHalignment(circle , HPos.CENTER);
+                        Rectangle rectangle1=new Rectangle(cellwidth , cellHeight , Color.YELLOW);
+                        rectangle.setStroke(Color.YELLOW);
+                        this.add(rectangle1,j,i);
+
                     }
 
 

@@ -38,7 +38,9 @@ class ConsolePlayer {
      * @return circle
      */
     public Circle getCircle(){
-        return new Circle(6,this.color);
+        Circle circle=new Circle(6,this.color);
+        circle.setStroke(Color.BLACK);
+        return circle;
 }
 
     /**
