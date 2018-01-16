@@ -8,24 +8,23 @@
 <?import javafx.scene.shape.Circle?>
 
 <HBox fx:id="root" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reversiApp.ReversiGameController">
-    <VBox spacing="10">
+    <VBox prefHeight="371.0" prefWidth="154.0" spacing="10">
 
         <Label fx:id="labelVar" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="current Player:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
         <Label fx:id="XScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score X:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label fx:id="OScore" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Score O:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-
-        <Label fx:id="gameOver" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label fx:id="Winner" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
 
 
         <Button mnemonicParsing="false" onAction="#end" text="End Game" />
     </VBox>
-   <Circle fx:id="playerCircle" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fx:id="playerColor" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
 
 
-   <Circle fx:id="playerCircle1" fill="DODGERBLUE" layoutX="172.0" layoutY="22.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
-   <Circle fx:id="playerCircle2" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+
+     <Label fx:id="gameOver" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" />
+
 
 </HBox>
