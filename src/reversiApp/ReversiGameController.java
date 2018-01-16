@@ -66,6 +66,7 @@ public class ReversiGameController implements Initializable {
         StringBuilder sb = new StringBuilder();
         String line = reader.readLine();
         color1 = Color.valueOf(line);
+        this.playerColor.fillProperty().set(color1);
         line = reader.readLine();
         color2=Color.valueOf(line);
         line = reader.readLine();
