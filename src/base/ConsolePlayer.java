@@ -1,19 +1,10 @@
-package reversiApp;
+package base;
 
-import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import reversiApp.Point;
-import reversiApp.Symbol;
 
-import javax.swing.text.html.ImageView;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-class ConsolePlayer {
-
+public class ConsolePlayer {
 
     private GridPane gridPane;
     private Symbol symbol;
@@ -38,7 +29,7 @@ class ConsolePlayer {
      * @return circle
      */
     public Circle getCircle(){
-        Circle circle=new Circle(6,this.color);
+        Circle circle=new Circle(8,this.color);
         circle.setStroke(Color.BLACK);
         return circle;
 }

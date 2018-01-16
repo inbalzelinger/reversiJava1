@@ -1,6 +1,4 @@
-package reversiApp;
-
-import reversiApp.Symbol;
+package base;
 
 import java.util.ArrayList;
 
@@ -17,7 +15,7 @@ public class ConsoleGameLogic {
      * @param b the board
      * @return a list of possible moves
      */
-    ArrayList<Point> PossibleMoves(Symbol playerSign , Board b) {
+    public ArrayList<Point> PossibleMoves(Symbol playerSign , Board b) {
         ArrayList<Point> moves1 = new ArrayList<>();
         ArrayList<Point> playersOptions=new ArrayList<>();
 

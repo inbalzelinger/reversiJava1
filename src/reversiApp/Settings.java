@@ -1,5 +1,6 @@
 package reversiApp;
 
+import base.Symbol;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +16,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.Observable;
 
 public class Settings extends GridPane {
 

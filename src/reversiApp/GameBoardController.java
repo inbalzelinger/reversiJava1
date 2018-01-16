@@ -2,13 +2,13 @@ package reversiApp;
 
 
 
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
+import base.Board;
+import base.ConsolePlayer;
+import base.Point;
+import base.Symbol;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -77,7 +77,7 @@ public class GameBoardController extends GridPane{
                     Point point = new Point(i+1 , j+1);
                     if (isInList(point , possibleMoves)) {
                         Rectangle rectangle1=new Rectangle(cellwidth , cellHeight , Color.YELLOW);
-                        rectangle.setStroke(Color.YELLOW);
+                        rectangle.setStroke(Color.BLACK);
                         this.add(rectangle1,j,i);
 
                     }

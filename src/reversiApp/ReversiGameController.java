@@ -1,9 +1,10 @@
 package reversiApp;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
+import base.Board;
+import base.ConsoleGameLogic;
+import base.Point;
+import base.Symbol;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,19 +15,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import static java.lang.System.exit;
-import static java.lang.System.setOut;
-import static javafx.scene.paint.Color.BLUE;
-import static javafx.scene.paint.Color.RED;
 
 public class ReversiGameController implements Initializable {
 
@@ -101,10 +95,7 @@ public class ReversiGameController implements Initializable {
         gameBoardController.setPrefHeight(400);
         gameBoardController.setPrefWidth(400);
         root.getChildren().add(0,gameBoardController);
-
         gameBoardController.draw(this.logic.PossibleMoves(this.currentPlayer , board));
-
-
         gameBoardController.setOnMouseClicked((MouseEvent event) -> {
             System.out.println("click: ");
             Point point=gameBoardController.whichCell(event.getY(),event.getX());
