@@ -30,14 +30,15 @@ import static javafx.scene.paint.Color.RED;
 
 public class ReversiGameController implements Initializable {
 
+    private  Integer numX;
+    private Integer numO;
+
     @FXML Label XScore;
     @FXML Label OScore;
     @FXML Label Winner;
     @FXML Label gameOver;
     @FXML Label playNow;
 
-    private  Integer numX;
-    private Integer numO;
 
     @FXML
     private HBox root;
@@ -54,7 +55,7 @@ public class ReversiGameController implements Initializable {
     this.logic = new ConsoleGameLogic();
     File settingsFile = new File("settings.txt");
     BufferedReader reader = null;
-    int size=8;
+    int size = 8;
     String firstPlayerSymbol = "X";
     Color color1 = Color.BLACK;
     Color color2 = Color.WHITE;
@@ -71,10 +72,8 @@ public class ReversiGameController implements Initializable {
         size=Integer.parseInt(line);
         if (firstPlayerSymbol.equals("X")) {
             this.currentPlayer = Symbol.X;
-            this.playNow.setText("Current player: X");
         } else {
             this.currentPlayer = Symbol.O;
-            this.playNow.setText("Current player: O");
 
         }
     } catch (Exception e) {
@@ -90,6 +89,15 @@ public class ReversiGameController implements Initializable {
         //labelVar.setText("its X turn");
         XScore.setText("X score: 2");
         OScore.setText("O score: 2");
+
+        if (this.currentPlayer == Symbol.O) {
+            this.playNow.setText("Current player: O");
+        } else {
+            this.playNow.setText("Current player: X");
+
+        }
+
+
         gameBoardController.setPrefHeight(400);
         gameBoardController.setPrefWidth(400);
         root.getChildren().add(0,gameBoardController);
