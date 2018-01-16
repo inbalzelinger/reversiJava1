@@ -22,6 +22,8 @@
         <Button mnemonicParsing="false" onAction="#end" text="End Game" />
     </VBox>
    <Circle fx:id="playerCircle" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+
+
    <Circle fx:id="playerCircle1" fill="DODGERBLUE" layoutX="172.0" layoutY="22.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
    <Circle fx:id="playerCircle2" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
 
