@@ -3,7 +3,7 @@ package reversiApp;
 
 
 import base.Board;
-import base.ConsolePlayer;
+import base.Player;
 import base.Point;
 import base.Symbol;
 import javafx.fxml.FXMLLoader;
@@ -20,8 +20,8 @@ public class GameBoardController extends GridPane{
     private Board board;
     private Color color1;
     private Color color2;
-    private ConsolePlayer playerX;
-    private ConsolePlayer playerO;
+    private Player playerX;
+    private Player playerO;
 
 
     private static final int FREE = 0;
@@ -40,8 +40,8 @@ public class GameBoardController extends GridPane{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GameBoard.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        playerX = new ConsolePlayer(this , color1, Symbol.X);
-        playerO = new ConsolePlayer(this , color2 , Symbol.O);
+        playerX = new Player(this , color1, Symbol.X);
+        playerO = new Player(this , color2 , Symbol.O);
 
         try {
             fxmlLoader.load();
@@ -68,8 +68,10 @@ public class GameBoardController extends GridPane{
                     Circle playerCircle=null;
                     if (board.getValueAt(i, j) == playerX.getSign()) {
                         playerCircle = playerX.getCircle();
+                        playerCircle.setRadius(cellHeight/2-cellHeight/10);
                     } else if (board.getValueAt(i, j) == playerO.getSign()) {
                         playerCircle = playerO.getCircle();
+                        playerCircle.setRadius(cellHeight/2-cellHeight/10);
                     }
                     this.add(playerCircle, j, i);
                     setHalignment(playerCircle, HPos.CENTER);
@@ -112,14 +114,13 @@ public class GameBoardController extends GridPane{
         int r= (int) ((int)row/cellSize);
         int c= (int) ((int)col/cellSize);
         return new Point(r+1,c+1);
-
         }
 
-    public ConsolePlayer getPlayerO() {
+    public Player getPlayerO() {
         return playerO;
     }
 
-    public ConsolePlayer getPlayerX() {
+    public Player getPlayerX() {
         return playerX;
     }
 }

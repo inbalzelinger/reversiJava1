@@ -1,7 +1,7 @@
 package reversiApp;
 
 import base.Board;
-import base.ConsoleGameLogic;
+import base.GameLogic;
 import base.Point;
 import base.Symbol;
 import javafx.event.ActionEvent;
@@ -37,7 +37,7 @@ public class ReversiGameController implements Initializable {
     @FXML
     private HBox root;
     private Symbol currentPlayer;
-    private ConsoleGameLogic logic;
+    private GameLogic logic;
     private Board board;
     private GameBoardController gameBoardController;
     private int didntPlay;
@@ -46,7 +46,7 @@ public class ReversiGameController implements Initializable {
      * constructor
      */
     public ReversiGameController(){
-    this.logic = new ConsoleGameLogic();
+    this.logic = new GameLogic();
     File settingsFile = new File("settings.txt");
     BufferedReader reader = null;
     int size = 8;
@@ -92,22 +92,18 @@ public class ReversiGameController implements Initializable {
         }
 
 
-        gameBoardController.setPrefHeight(400);
-        gameBoardController.setPrefWidth(400);
+        gameBoardController.setPrefHeight(1000);
+        gameBoardController.setPrefWidth(1000);
         root.getChildren().add(0,gameBoardController);
         gameBoardController.draw(this.logic.PossibleMoves(this.currentPlayer , board));
         gameBoardController.setOnMouseClicked((MouseEvent event) -> {
-            System.out.println("click: ");
             Point point=gameBoardController.whichCell(event.getY(),event.getX());
-            point.PrintPoint();
             boolean isPlay = this.playOneTurn(point,currentPlayer);
             boolean endOfGame = false;
            if(isPlay){
                endOfGame = this.updateCurrentPoints();
-                System.out.println("yes");
             }
            if (this.didntPlay == 2) {
-               System.out.println("end no Moves");
                this.updateWinner();
            }
             if (endOfGame) {

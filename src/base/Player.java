@@ -4,7 +4,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class ConsolePlayer {
+public class Player {
 
     private GridPane gridPane;
     private Symbol symbol;
@@ -17,7 +17,7 @@ public class ConsolePlayer {
      * @param symbol
      */
 
-    public ConsolePlayer(GridPane gridPane , Color color , Symbol symbol) {
+    public Player(GridPane gridPane , Color color , Symbol symbol) {
         this.gridPane = gridPane;
         this.color = color;
         this.symbol = symbol;

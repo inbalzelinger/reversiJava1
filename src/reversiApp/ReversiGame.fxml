@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<HBox fx:id="root" prefHeight="371.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reversiApp.ReversiGameController">
+<HBox fx:id="root" prefHeight="371.0" prefWidth="1300" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reversiApp.ReversiGameController">
    <children>
        <VBox prefHeight="371.0" prefWidth="270" spacing="10">
           <children>

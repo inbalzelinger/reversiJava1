@@ -2,12 +2,12 @@ package base;
 
 import java.util.ArrayList;
 
-public class ConsoleGameLogic {
+public class GameLogic {
 
     /**
      * constructor
      */
-    public ConsoleGameLogic(){}
+    public GameLogic(){}
 
     /**
      * return a list of possible moves for current player

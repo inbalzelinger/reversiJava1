@@ -28,8 +28,10 @@
              <Button mnemonicParsing="false" onAction="#Settings" prefHeight="33.0" prefWidth="100.0" text="Settings" GridPane.columnIndex="1" GridPane.rowIndex="2">Settings</Button>
               <Button mnemonicParsing="false" onAction="#Start" prefHeight="33.0" prefWidth="100.0" text="Start" GridPane.columnIndex="1" GridPane.rowIndex="3" />
               <Button mnemonicParsing="false" onAction="#End" prefHeight="33.0" prefWidth="100.0" text="End" GridPane.columnIndex="1" GridPane.rowIndex="4">Settings</Button>
-            <Label alignment="BOTTOM_LEFT" prefHeight="55.0" prefWidth="169.0" text="Welcome to" GridPane.columnIndex="1" />
-            <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="59.0" prefWidth="150.0" text="Reversi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="55.0" prefWidth="169.0" text="Welcome to Reversi" GridPane.columnIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
          </children>
       </GridPane>
       <VBox prefHeight="400.0" prefWidth="349.0" />
